@@ -6,12 +6,16 @@
 /*   By: mbarbari <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/10 17:22:49 by mbarbari          #+#    #+#             */
-/*   Updated: 2015/06/11 11:36:10 by mbarbari         ###   ########.fr       */
+/*   Updated: 2015/06/11 22:14:30 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-class Contact {
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
+# include <iostream>
+
+class Contact {
 	private :
 		std::string	firstname;
 		std::string	lastname;
@@ -24,20 +28,44 @@ class Contact {
 		std::string	favoritemeal;
 		std::string	underwearcol;
 		std::string	darkestsecret;
-		Contact(void);
+		Contact(std::string	firstname,
+                std::string	lastname,
+                std::string	nickname,
+                std::string	login,
+                std::string	postaladdr,
+                std::string	emailaddr,
+                std::string	phonenbr,
+                std::string	birthdaydate,
+                std::string	favoritemeal,
+                std::string	underwearcol,
+                std::string	darkestsecret);
 
 	public :
-		std::string	get_firstname(std::string firstname);
-		std::string	get_lastname(std::string lastname);
-		std::string	get_nickname(std::string nickname);
-		std::string	get_login(std::string login);
-		std::string	get_postaladdr(std::string postaladdr);
-		std::string	get_emailaddr(std::string emailaddr);
-		std::string	get_phonenbr(std::string phonenbr);
-		std::string	get_birthdaydate(std::string birthdaydate);
-		std::string	get_favoritemeal(std::string favoritemeal);
-		std::string	get_underwearcol(std::string underwearcol);
-		std::string	get_darkestsecret(std::string darkestsecret);
+		class Builder;
+		Contact();
+		std::string		get_firstname(void);
+		std::string		get_lastname(void);
+		std::string		get_nickname(void);
+		std::string		get_login(void);
+		std::string		get_postaladdr(void);
+		std::string		get_emailaddr(void);
+		std::string		get_phonenbr(void);
+		std::string		get_birthdaydate(void);
+		std::string		get_favoritemeal(void);
+		std::string		get_underwearcol(void);
+		std::string		get_darkestsecret(void);
+
+		void			print_firstname(void);
+		void			print_lastname(void);
+		void			print_nickname(void);
+		void			print_login(void);
+		void			print_postaladdr(void);
+		void			print_emailaddr(void);
+		void			print_phonenbr(void);
+		void			print_birthdaydate(void);
+		void			print_favoritemeal(void);
+		void			print_underwearcol(void);
+		void			print_darkestsecret(void);
 };
 
 class Contact::Builder {
@@ -57,6 +85,7 @@ class Contact::Builder {
 
 	public:
 		Builder();
+
 		Builder&	set_firstname(std::string firstname);
 		Builder&	set_lastname(std::string lastname);
 		Builder&	set_nickname(std::string nickname);
@@ -70,3 +99,5 @@ class Contact::Builder {
 		Builder&	set_darkestsecret(std::string darkestsecret);
 		Contact			build();
 };
+
+#endif
