@@ -6,7 +6,7 @@
 /*   By: mbarbari <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/10 17:59:52 by mbarbari          #+#    #+#             */
-/*   Updated: 2015/06/11 22:57:19 by root             ###   ########.fr       */
+/*   Updated: 2015/06/12 15:56:47 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,10 @@ Contact Contact::Builder::build() {
 }
 
 Contact::Builder&	Contact::Builder::set_firstname(std::string name) {
-		if (name.size() > 10)
-		{
-				name[10] = '.';
-				name.resize(10);
-		}
+		if (name.length() <= 10)
+			name.resize(10, ' ');
+		else
+			name.substr(0, 9) + ".";
 		this->firstname = name;
 		return *this;
 }
@@ -78,11 +77,6 @@ void			Contact::print_firstname(void)
 }
 
 Contact::Builder& Contact::Builder::set_lastname(std::string name) {
-		if (name.size() > 10)
-		{
-				name[10] = '.';
-				name.resize(10);
-		}
 		this->lastname = name;
 		return (*this);
 }
@@ -98,11 +92,6 @@ void			Contact::print_lastname(void)
 }
 
 Contact::Builder& Contact::Builder::set_nickname(std::string name) {
-		if (name.size() > 10)
-		{
-				name[10] = '.';
-				name.resize(10);
-		}
 		this->nickname = name;
 		return (*this);
 }
@@ -118,11 +107,6 @@ void			Contact::print_nickname(void)
 }
 
 Contact::Builder& Contact::Builder::set_login(std::string name) {
-		if (name.size() > 10)
-		{
-				name[10] = '.';
-				name.resize(10);
-		}
 		this->login = name;
 		return (*this);
 }
@@ -138,11 +122,6 @@ void			Contact::print_login(void)
 }
 
 Contact::Builder& Contact::Builder::set_postaladdr(std::string name) {
-		if (name.size() > 10)
-		{
-				name[10] = '.';
-				name.resize(10);
-		}
 		this->postaladdr = name;
 		return (*this);
 }
@@ -158,11 +137,6 @@ void			Contact::print_postaladdr(void)
 }
 
 Contact::Builder& Contact::Builder::set_emailaddr(std::string name) {
-		if (name.size() > 10)
-		{
-				name[10] = '.';
-				name.resize(10);
-		}
 		this->emailaddr = name;
 		return (*this);
 }
@@ -178,11 +152,6 @@ void			Contact::print_emailaddr(void)
 }
 
 Contact::Builder& Contact::Builder::set_phonenbr(std::string name) {
-		if (name.size() > 10)
-		{
-				name[10] = '.';
-				name.resize(10);
-		}
 		this->phonenbr = name;
 		return (*this);
 }
@@ -198,11 +167,6 @@ void			Contact::print_phonenbr(void)
 }
 
 Contact::Builder& Contact::Builder::set_birthdaydate(std::string name) {
-		if (name.size() > 10)
-		{
-				name[10] = '.';
-				name.resize(10);
-		}
 		this->birthdaydate = name;
 		return (*this);
 }
@@ -218,11 +182,6 @@ void			Contact::print_birthdaydate(void)
 }
 
 Contact::Builder& Contact::Builder::set_favoritemeal(std::string name) {
-		if (name.size() > 10)
-		{
-				name[10] = '.';
-				name.resize(10);
-		}
 		this->favoritemeal = name;
 		return (*this);
 }
@@ -238,11 +197,6 @@ void			Contact::print_favoritemeal(void)
 }
 
 Contact::Builder& Contact::Builder::set_underwearcol(std::string name) {
-		if (name.size() > 10)
-		{
-				name[10] = '.';
-				name.resize(10);
-		}
 		this->underwearcol = name;
 		return (*this);
 }
@@ -258,11 +212,6 @@ void			Contact::print_underwearcol(void)
 }
 
 Contact::Builder& Contact::Builder::set_darkestsecret(std::string name) {
-		if (name.size() > 10)
-		{
-				name[10] = '.';
-				name.resize(10);
-		}
 		this->darkestsecret = name;
 		return (*this);
 }

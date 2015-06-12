@@ -4,6 +4,7 @@
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbarbari <marvin@42.fr>                    +#+  +:+       +#+        */
+
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/10 18:47:04 by mbarbari          #+#    #+#             */
 /*   Updated: 2015/06/11 22:57:16 by root             ###   ########.fr       */
@@ -64,6 +65,7 @@ int					main(void)
 		if (command == "ADD")
 		{
 			try {
+				book.error_nbContact(2);
 				book.add_phonebook(cmd_add(data));
 			}
 			catch (std::string const &str){
@@ -72,6 +74,8 @@ int					main(void)
 		}
 		else if (command == "SEARCH")
 			cmd_search(book);
+		else if (command == "EXIT")
+			return (0);
 	}
 	return (0);
 }

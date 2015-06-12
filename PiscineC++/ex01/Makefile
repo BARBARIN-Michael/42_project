@@ -6,7 +6,7 @@
 #    By: mbarbari <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/06/10 15:30:58 by mbarbari          #+#    #+#              #
-#    Updated: 2015/06/11 22:39:29 by root             ###   ########.fr        #
+#    Updated: 2015/06/12 15:57:49 by root             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRCS = Contact.cpp \
 
 OBJS = $(SRCS:%.cpp=%.o)
 
-.PHONY: all
+.PHONY: all clean fclean re
 
 all: $(NAME)
 
@@ -34,3 +34,8 @@ $(NAME): $(OBJS)
 
 clean:
 	$(RM) $(OBJS)
+
+fclean:
+	$(RM) $(OBJS) $(NAME)
+
+re: fclean all
