@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Human.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbarbari <mbarbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/13 11:40:18 by mbarbari          #+#    #+#             */
-/*   Updated: 2015/06/13 14:59:26 by mbarbari         ###   ########.fr       */
+/*   Created: 2015/06/14 16:02:32 by mbarbari          #+#    #+#             */
+/*   Updated: 2015/06/14 16:06:30 by mbarbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Human.hpp>
+#ifndef HUMAN_HPP
+# define HUMAN_HPP
 
-int		main(void)
-{
-	//Human bocalien = Human();
-	//bocalien.identify();
-	//bocalien.getBrain().identify();
-	Human bob;
-	std::cout << bob.identify() << std::endl;
-	std::cout << bob.getBrain().identify() << std::endl;
-}
+class Human {
+	
+	private :
+		void meleeAttack(std::string const& target);
+		void rangedAttack(std::string const& target);
+		void intimidatingShout(std::string const& target);
+
+	public :
+		Human();
+		~Human();
+		void	action(std::string const& action_name, std::string const& target);
+};
+
+#endif

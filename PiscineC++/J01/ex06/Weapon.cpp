@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbarbari <mbarbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/13 11:40:18 by mbarbari          #+#    #+#             */
-/*   Updated: 2015/06/13 14:59:26 by mbarbari         ###   ########.fr       */
+/*   Created: 2015/06/13 15:16:51 by mbarbari          #+#    #+#             */
+/*   Updated: 2015/06/13 17:08:46 by mbarbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Human.hpp>
+#include <Weapon.hpp>
 
-int		main(void)
+Weapon::Weapon(std::string typeWeapon) : _typeWeapon(typeWeapon) {
+}
+
+const std::string&	Weapon::getType() const
 {
-	//Human bocalien = Human();
-	//bocalien.identify();
-	//bocalien.getBrain().identify();
-	Human bob;
-	std::cout << bob.identify() << std::endl;
-	std::cout << bob.getBrain().identify() << std::endl;
+	return (this->_typeWeapon);
+}
+
+void			Weapon::setType(std::string typeWeapon)
+{
+	this->_typeWeapon = typeWeapon;
 }

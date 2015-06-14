@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbarbari <mbarbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/13 11:40:18 by mbarbari          #+#    #+#             */
-/*   Updated: 2015/06/13 14:59:26 by mbarbari         ###   ########.fr       */
+/*   Created: 2015/06/13 15:27:30 by mbarbari          #+#    #+#             */
+/*   Updated: 2015/06/13 18:13:13 by mbarbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Human.hpp>
+#include <HumanB.hpp>
 
-int		main(void)
+HumanB::HumanB(std::string name) : _name(name) {
+}
+
+void	HumanB::attack()
 {
-	//Human bocalien = Human();
-	//bocalien.identify();
-	//bocalien.getBrain().identify();
-	Human bob;
-	std::cout << bob.identify() << std::endl;
-	std::cout << bob.getBrain().identify() << std::endl;
+	std::cout	<< this->_name << " attacks with his "
+				<< this->_weapon->getType() << std::endl;
+}
+
+void	HumanB::setWeapon(Weapon &weapon)
+{
+	this->_weapon = &weapon;
 }

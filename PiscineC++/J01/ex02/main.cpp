@@ -6,7 +6,7 @@
 /*   By: mbarbari <mbarbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/12 19:30:08 by mbarbari          #+#    #+#             */
-/*   Updated: 2015/06/12 22:02:06 by mbarbari         ###   ########.fr       */
+/*   Updated: 2015/06/13 15:04:12 by mbarbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static std::string	randomName(void)
 	};
 	while (1)
 	{
-		if ((newname = nameZombie[rand() % (21 + 1)]) != name)
+		if ((newname = nameZombie[rand() % 21]) != name)
 			break ;
 	}
 	name = newname;

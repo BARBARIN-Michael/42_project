@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbarbari <mbarbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/13 11:40:18 by mbarbari          #+#    #+#             */
-/*   Updated: 2015/06/13 14:59:26 by mbarbari         ###   ########.fr       */
+/*   Created: 2015/06/13 15:27:33 by mbarbari          #+#    #+#             */
+/*   Updated: 2015/06/13 18:13:20 by mbarbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Human.hpp>
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
 
-int		main(void)
-{
-	//Human bocalien = Human();
-	//bocalien.identify();
-	//bocalien.getBrain().identify();
-	Human bob;
-	std::cout << bob.identify() << std::endl;
-	std::cout << bob.getBrain().identify() << std::endl;
-}
+	
+#include <iostream>
+#include <Weapon.hpp>
+
+class HumanB {
+
+	private :
+		Weapon *_weapon;
+		std::string _name;
+
+	public :
+		HumanB(std::string name);
+		void	setWeapon(Weapon &weapon);
+		void	attack();
+};
+
+#endif

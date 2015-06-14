@@ -6,21 +6,20 @@
 /*   By: mbarbari <mbarbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/13 11:34:31 by mbarbari          #+#    #+#             */
-/*   Updated: 2015/06/13 13:01:10 by mbarbari         ###   ########.fr       */
+/*   Updated: 2015/06/13 15:00:00 by mbarbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <sstream>
 #include <Brain.hpp>
-
-Brain::Brain(int memory, int neurone, int qi) : _memory(memory), 
-												_neurone(neurone),
-												_qi(qi){
-}
 
 Brain::Brain() {
 }
 
-void	Brain::identify()
+std::string	Brain::identify()
 {
-	std::cout << "Brains number : " << this << std::endl;
+	std::stringstream ss;
+
+	ss << std::hex << this;
+	return (ss.str());
 }

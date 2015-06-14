@@ -6,7 +6,7 @@
 /*   By: mbarbari <mbarbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/13 11:40:44 by mbarbari          #+#    #+#             */
-/*   Updated: 2015/06/13 13:10:50 by mbarbari         ###   ########.fr       */
+/*   Updated: 2015/06/13 15:00:35 by mbarbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,12 @@
 class Human {
 	
 	private :
-		Brain	*_brain;
+		Brain	_brain;
 
 	public :
 		Human();
-		~Human();
 		Brain&	getBrain();
-		void	identify();
+		std::string	identify();
 };
 
 #endif

@@ -6,29 +6,23 @@
 /*   By: mbarbari <mbarbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/13 11:40:32 by mbarbari          #+#    #+#             */
-/*   Updated: 2015/06/13 13:16:29 by mbarbari         ###   ########.fr       */
+/*   Updated: 2015/06/13 15:00:19 by mbarbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Human.hpp>
 #include <Brain.hpp>
 
-Human::Human()
+Human::Human() : _brain()
 {
-	this->_Brain = new Brain();
 }
 
-Human::~Human()
+std::string	Human::identify()
 {
-	delete this->_brain;
-}
-
-void		Human::identify()
-{
-	this->_brain->identify();
+	return (this->_brain.identify());
 }
 
 Brain&		Human::getBrain()
 {
-	return (*this->_brain);
+	return (this->_brain);
 }
