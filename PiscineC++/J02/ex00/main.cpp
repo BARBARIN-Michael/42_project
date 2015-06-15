@@ -5,21 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbarbari <mbarbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/14 17:05:18 by mbarbari          #+#    #+#             */
-/*   Updated: 2015/06/14 17:19:14 by mbarbari         ###   ########.fr       */
+/*   Created: 2015/06/14 21:09:01 by mbarbari          #+#    #+#             */
+/*   Updated: 2015/06/14 21:10:44 by mbarbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <Human.hpp>
+#include <Fixed.hpp>
 
-int		main(void)
+int			main(void)
 {
-	Human toto = Human("toto");
+	Fixed a;
+	Fixed b(a);
+	Fixed c;
 
-	toto.action("melee", "titi");
-	toto.action("ranged", "titi");
-	toto.action("shout", "titi");
-	toto.action("battle", "titi");
+	c = b;
+
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
 	return (0);
 }

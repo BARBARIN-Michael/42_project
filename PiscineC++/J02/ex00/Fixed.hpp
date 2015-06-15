@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbarbari <mbarbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/14 17:05:18 by mbarbari          #+#    #+#             */
-/*   Updated: 2015/06/14 17:19:14 by mbarbari         ###   ########.fr       */
+/*   Created: 2015/06/14 18:37:51 by mbarbari          #+#    #+#             */
+/*   Updated: 2015/06/14 20:55:05 by mbarbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <Human.hpp>
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
-int		main(void)
-{
-	Human toto = Human("toto");
+class Fixed {
 
-	toto.action("melee", "titi");
-	toto.action("ranged", "titi");
-	toto.action("shout", "titi");
-	toto.action("battle", "titi");
-	return (0);
-}
+	private :
+		int			_fixe;
+		const int	_fractional_bits;
+
+	public :
+		Fixed();
+		Fixed(Fixed const &rhs);
+		~Fixed();
+		Fixed & operator=(Fixed const &rhs);
+		int		getRawBits(void) const;
+		void	setRawBits(int const raw);
+};
+
+#endif

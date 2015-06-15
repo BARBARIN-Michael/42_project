@@ -5,21 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbarbari <mbarbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/14 17:05:18 by mbarbari          #+#    #+#             */
-/*   Updated: 2015/06/14 17:19:14 by mbarbari         ###   ########.fr       */
+/*   Created: 2015/06/14 21:09:01 by mbarbari          #+#    #+#             */
+/*   Updated: 2015/06/14 22:12:46 by mbarbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <Human.hpp>
+#include <Fixed.hpp>
 
-int		main(void)
+int			main(void)
 {
-	Human toto = Human("toto");
+	Fixed a;
+	Fixed const b( 10 );
+	Fixed const c( 42.42f );
+	Fixed const d( b );
 
-	toto.action("melee", "titi");
-	toto.action("ranged", "titi");
-	toto.action("shout", "titi");
-	toto.action("battle", "titi");
+	a = Fixed( 1234.4321f );
+	std::cout << "a is " << a << std::endl;
+	std::cout << "b is " << b << std::endl;
+	std::cout << "c is " << c << std::endl;
+	std::cout << "d is " << d << std::endl;
+	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
+	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
+	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
+	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
 	return (0);
 }
