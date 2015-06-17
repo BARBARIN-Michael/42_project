@@ -6,22 +6,24 @@
 /*   By: mbarbari <mbarbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/14 18:17:26 by mbarbari          #+#    #+#             */
-/*   Updated: 2015/06/15 09:12:52 by mbarbari         ###   ########.fr       */
+/*   Updated: 2015/06/16 10:04:26 by mbarbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Fixed.hpp>
 #include <iostream>
+#include <cmath>
 
 
 Fixed::Fixed() : _fixe(0), _fractionalbits(8) {
 }
 
 Fixed::Fixed(const int fixe) : _fractionalbits(8), _fixe(fixe << this->_fractionalbits)  {
+	this->_fixe = fixe << _fractionalbits;
 }
 
-Fixed::Fixed(const float fixe) : _fixe(fixe), _fractionalbits(8) {
-	this->_fixe = static_cast<int>(fixe * (1 << this->_fractionalbits));
+Fixed::Fixed(const float fixe) : _fractionalbits(8) {
+	this->_fixe = static_cast<int>(roundf(fixe * (1 << this->_fractionalbits)));
 }
 
 Fixed::Fixed(Fixed const &fixed) : _fractionalbits(8){
@@ -43,25 +45,25 @@ float		Fixed::toFloat(void) const {
 	return (static_cast<float>(this->_fixe) / (1 << this->_fractionalbits));
 }
 
-Fixed&		Fixed::min(Fixed lhs, Fixed rhs) const{
+Fixed&		Fixed::min(Fixed& lhs, Fixed& rhs) {
 	if (lhs < rhs)
 		return (lhs);
 	return (rhs);
 }
 
-Fixed&		Fixed::max(Fixed lhs, Fixed rhs) const{
+Fixed&		Fixed::max(Fixed& lhs, Fixed& rhs) {
 	if (lhs > rhs)
 		return (lhs);
 	return (rhs);
 }
 
-Fixed const&		Fixed::min(Fixed const& lhs, Fixed const& rhs) const{
+Fixed const&		Fixed::min(Fixed const& lhs, Fixed const& rhs) {
 	if (lhs < rhs)
 		return (lhs);
 	return (rhs);
 }
 
-Fixed const&		Fixed::max(Fixed const& lhs, Fixed const& rhs) const{
+Fixed const&		Fixed::max(Fixed const& lhs, Fixed const& rhs) {
 	if (lhs > rhs)
 		return (lhs);
 	return (rhs);
@@ -111,12 +113,14 @@ Fixed Fixed::operator/(Fixed const &rhs) {
 }
 
 Fixed Fixed::operator++(int) {
-		Fixed old = *this;
-		*this = Fixed(this->getRawBits() + Fixed(1).getRawBits());
+		Fixed old(*this);
+		++this->_fixe;
 	return (old);
 }
 
 Fixed& Fixed::operator++() {
+	++this->_fixe;
+	return (*this);
 		*this = Fixed(this->getRawBits() + Fixed(1).getRawBits());
 	return (*this);
 }

@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbarbari <mbarbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/14 21:09:01 by mbarbari          #+#    #+#             */
-/*   Updated: 2015/06/16 15:13:39 by mbarbari         ###   ########.fr       */
+/*   Created: 2015/06/17 10:41:04 by mbarbari          #+#    #+#             */
+/*   Updated: 2015/06/17 16:03:21 by mbarbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <Fixed.hpp>
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-int			main(void)
-{
-	Fixed a;
-	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << Fixed::max( a, b ) << std::endl;
-	return 0;
-}
+#include <string>
+
+class ScavTrap : public ClapTrap{
+
+	private :
+
+	public :
+		ScavTrap(std::string name);
+		ScavTrap(ScavTrap const &rhs);
+		ScavTrap & operator=(ScavTrap const &rhs);
+		~ScavTrap();
+
+		size_t	challengeNewcomer(std::string const& target);
+};
+
+#endif
